@@ -64,9 +64,23 @@ void Error_Handler(void);
 #define BTN_0_Pin GPIO_PIN_1
 #define BTN_0_GPIO_Port GPIOA
 #define BTN_0_EXTI_IRQn EXTI1_IRQn
+#define SEG_4_Pin GPIO_PIN_2
+#define SEG_4_GPIO_Port GPIOA
 #define BTN_4_Pin GPIO_PIN_3
 #define BTN_4_GPIO_Port GPIOA
 #define BTN_4_EXTI_IRQn EXTI3_IRQn
+#define SEG_2_Pin GPIO_PIN_4
+#define SEG_2_GPIO_Port GPIOA
+#define SEG_7_Pin GPIO_PIN_5
+#define SEG_7_GPIO_Port GPIOA
+#define SEG_6_Pin GPIO_PIN_6
+#define SEG_6_GPIO_Port GPIOA
+#define SEG_5_Pin GPIO_PIN_7
+#define SEG_5_GPIO_Port GPIOA
+#define SEG_0_Pin GPIO_PIN_0
+#define SEG_0_GPIO_Port GPIOB
+#define SEG_1_Pin GPIO_PIN_1
+#define SEG_1_GPIO_Port GPIOB
 #define BTN_3_Pin GPIO_PIN_2
 #define BTN_3_GPIO_Port GPIOB
 #define BTN_3_EXTI_IRQn EXTI2_IRQn
@@ -75,9 +89,15 @@ void Error_Handler(void);
 #define BTN_2_Pin GPIO_PIN_14
 #define BTN_2_GPIO_Port GPIOD
 #define BTN_2_EXTI_IRQn EXTI15_10_IRQn
+#define SEG_3_Pin GPIO_PIN_15
+#define SEG_3_GPIO_Port GPIOA
 #define BTN_5_Pin GPIO_PIN_4
 #define BTN_5_GPIO_Port GPIOB
 #define BTN_5_EXTI_IRQn EXTI4_IRQn
+#define SEG_9_Pin GPIO_PIN_8
+#define SEG_9_GPIO_Port GPIOB
+#define SEG_8_Pin GPIO_PIN_9
+#define SEG_8_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
