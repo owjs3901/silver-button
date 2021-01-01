@@ -58,12 +58,6 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define BTN_1_Pin GPIO_PIN_0
-#define BTN_1_GPIO_Port GPIOA
-#define BTN_1_EXTI_IRQn EXTI0_IRQn
-#define BTN_0_Pin GPIO_PIN_1
-#define BTN_0_GPIO_Port GPIOA
-#define BTN_0_EXTI_IRQn EXTI1_IRQn
 #define SEG_4_Pin GPIO_PIN_2
 #define SEG_4_GPIO_Port GPIOA
 #define BTN_4_Pin GPIO_PIN_3
@@ -79,11 +73,17 @@ void Error_Handler(void);
 #define SEG_5_GPIO_Port GPIOA
 #define SEG_0_Pin GPIO_PIN_0
 #define SEG_0_GPIO_Port GPIOB
-#define SEG_1_Pin GPIO_PIN_1
-#define SEG_1_GPIO_Port GPIOB
+#define BTN_0_Pin GPIO_PIN_1
+#define BTN_0_GPIO_Port GPIOB
 #define BTN_3_Pin GPIO_PIN_2
 #define BTN_3_GPIO_Port GPIOB
 #define BTN_3_EXTI_IRQn EXTI2_IRQn
+#define M_SPI_SCK_Pin GPIO_PIN_13
+#define M_SPI_SCK_GPIO_Port GPIOE
+#define M_SPI_MISO_Pin GPIO_PIN_14
+#define M_SPI_MISO_GPIO_Port GPIOE
+#define M_SPI_MOSI_Pin GPIO_PIN_15
+#define M_SPI_MOSI_GPIO_Port GPIOE
 #define LED2_Pin GPIO_PIN_14
 #define LED2_GPIO_Port GPIOB
 #define BTN_2_Pin GPIO_PIN_14
