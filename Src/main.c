@@ -70,12 +70,12 @@ static void MX_UART4_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 /**
- * 1. ?��?��
- * 2. ?��?��
- * 3. �?????????
+ * 1. 온도 표시
+ * 2. 습도 표시
+ * 3. 문
  * 4. 창문
- * 5. �?????????
- * 6. 거실
+ * 5. 방 LED
+ * 6. 거실 LED
  */
 
 GPIO_TypeDef *seg_type_def[10] = {
@@ -104,7 +104,7 @@ uint16_t seg_pin[10] = {
 };
 
 /**
- * seg ?��?��
+ * seg display array
  */
 int seg_array[10][10] = {
         {
@@ -139,10 +139,10 @@ int seg_array[10][10] = {
         },
 };
 
-// 0~99 까�? ?��?�� �??????????��
+// 0~99까지 입력 가능
 void setSeg(uint8_t num) {
 
-    // 10?�� ?���?????????
+    // 10의 자리
     HAL_GPIO_WritePin(seg_type_def[5], seg_pin[5], GPIO_PIN_SET);
     HAL_GPIO_WritePin(seg_type_def[4], seg_pin[4], GPIO_PIN_RESET);
 
@@ -151,7 +151,7 @@ void setSeg(uint8_t num) {
             HAL_GPIO_WritePin(seg_type_def[i], seg_pin[i], seg_array[num / 10][i] ? GPIO_PIN_SET : GPIO_PIN_RESET);
     HAL_Delay(4);
 
-    // 1?�� ?���?????????
+    // 1의 자리
     HAL_GPIO_WritePin(seg_type_def[4], seg_pin[4], GPIO_PIN_SET);
     HAL_GPIO_WritePin(seg_type_def[5], seg_pin[5], GPIO_PIN_RESET);
 
@@ -161,13 +161,13 @@ void setSeg(uint8_t num) {
     HAL_Delay(4);
 }
 
-float g_temp; // ?��?��
-float g_hum; // ?��?��
+float g_temp; // 온도
+float g_hum; // 습도
 
 uint8_t g_state[4];
 
-int g_seg_type = 0; // ?��?���????????? 보여줄건�????????? ?��?���????????? 보여�????????? 건�?
-int g_mode = 0; // �?????????로벌 모드
+int g_seg_type = 0; // 온도를 표시할 것 인지 습도를 표시할 것 인지
+int g_mode = 0; // 선택 모드
 
 int g_lastSec = 0;
 
@@ -486,7 +486,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-    // 모드 �?????????�????????? ?���????????? 갱신
+    // 모드 선택 마지막 시간 갱신
     g_lastSec = HAL_GetTick();
 
     switch (GPIO_Pin) {
