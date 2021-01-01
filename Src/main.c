@@ -25,6 +25,7 @@
 
 #include <string.h>
 #include <stdio.h>
+#include "data.h"
 
 /* USER CODE END Includes */
 
@@ -67,9 +68,9 @@ static void MX_UART4_Init(void);
 /**
  * 1. ?��?��
  * 2. ?��?��
- * 3. �???????
+ * 3. �????????
  * 4. 창문
- * 5. �???????
+ * 5. �????????
  * 6. 거실
  */
 
@@ -134,10 +135,10 @@ int seg_array[10][10] = {
         },
 };
 
-// 0~99 까�? ?��?�� �????????��
+// 0~99 까�? ?��?�� �?????????��
 void setSeg(uint8_t num) {
 
-    // 10?�� ?���???????
+    // 10?�� ?���????????
     HAL_GPIO_WritePin(seg_type_def[5], seg_pin[5], GPIO_PIN_SET);
     HAL_GPIO_WritePin(seg_type_def[4], seg_pin[4], GPIO_PIN_RESET);
 
@@ -146,7 +147,7 @@ void setSeg(uint8_t num) {
             HAL_GPIO_WritePin(seg_type_def[i], seg_pin[i], seg_array[num / 10][i] ? GPIO_PIN_SET : GPIO_PIN_RESET);
     HAL_Delay(4);
 
-    // 1?�� ?���???????
+    // 1?�� ?���????????
     HAL_GPIO_WritePin(seg_type_def[4], seg_pin[4], GPIO_PIN_SET);
     HAL_GPIO_WritePin(seg_type_def[5], seg_pin[5], GPIO_PIN_RESET);
 
@@ -156,15 +157,15 @@ void setSeg(uint8_t num) {
     HAL_Delay(4);
 }
 
-int g_temp; // ?��?��
-int g_hum; // ?��?��
+float g_temp; // ?��?��
+float g_hum; // ?��?��
 
-int g_seg_type = 0; // ?��?���??????? 보여줄건�??????? ?��?���??????? 보여�??????? 건�?
-int g_mode = 0; // �???????로벌 모드
+int g_seg_type = 0; // ?��?���???????? 보여줄건�???????? ?��?���???????? 보여�???????? 건�?
+int g_mode = 0; // �????????로벌 모드
 
 int g_lastSec = 0;
 
-uint8_t g_data = ' ';
+struct s_data g_data;
 
 
 /* USER CODE END 0 */
@@ -203,7 +204,7 @@ int main(void)
   MX_UART4_Init();
   /* USER CODE BEGIN 2 */
 
-    HAL_UART_Receive_IT(&huart4, &g_data, 1);
+    HAL_UART_Receive_IT(&huart4, (uint8_t *) &g_data, sizeof(struct s_data));
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -212,28 +213,9 @@ int main(void)
     HAL_UART_Transmit(&huart1, "GO", strlen("GO"), 10);
 
     while (1) {
-//        HAL_UART_Receive(&huart4, R_buffer, 6, 10);
-//        HAL_UART_Transmit(&huart1, R_buffer, 6, 10);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-//        switch (HAL_SPI_Transmit(&hspi1, T_buffer, sizeof(T_buffer), 10)) {
-//            case HAL_OK:
-//                if (HAL_SPI_Receive(&hspi1, R_buffer, 10, 10) == HAL_OK) {
-//                    HAL_UART_Transmit(&huart1, R_buffer, strlen(R_buffer), 10);
-//                } else
-//                    HAL_UART_Transmit(&huart1, "ERROR", strlen("ERROR"), 10);
-//                break;
-//            case HAL_TIMEOUT:
-//                HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_SET);
-//                break;
-//            case HAL_ERROR:
-//                HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_SET);
-//                break;
-//            case HAL_BUSY:
-//                HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_SET);
-//                break;
-//        }
         int nowSec = HAL_GetTick();
         HAL_Delay(1000);
 
@@ -508,13 +490,18 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-    HAL_UART_Transmit(&huart1, &g_data, 1, 10);
 
-    HAL_UART_Receive_IT(huart, &g_data, 1);
+    g_data.hum = g_hum;
+    g_data.temp = g_temp;
+
+    HAL_UART_Transmit(&huart4, (uint8_t *) &g_data, sizeof(struct s_data), 10);
+
+//    HAL_UART_Receive_IT(huart, &g_data, 1);
+    HAL_UART_Receive_IT(&huart4, (uint8_t *) &g_data, sizeof(struct s_data));
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-    // 모드 �???????�??????? ?���??????? 갱신
+    // 모드 �????????�???????? ?���???????? 갱신
     g_lastSec = HAL_GetTick();
 
     switch (GPIO_Pin) {
