@@ -4,6 +4,7 @@
   ![Alt text](/Images/silver_button_icon.png)
 
 ## 시연영상
+[![Watch the video](https://i.ytimg.com/vi/qRNFLEtTd2Y/maxresdefault.jpg)](https://youtu.be/qRNFLEtTd2Y)
 
 ## 구성원
 - **[오정민](https://github.com/owjs3901)(팀장)**
@@ -39,8 +40,8 @@
 | HC-06(Bluetooth) | ![Alt text](/Images/bluetooth.jpg) |
 | 택트스위치 | ![Alt text](/Images/switch.jpg) |
 | 4201ASR-3 | ![Alt text](/Images/4201ASR-3.jpg) |
-  
-- Raspberry Pi 4(Raspbian 기반) Pin Map
+
+- Raspberry Pi 4(Raspbian 기반) Pin Map  
 ![Alt text](/Images/RPI4.png)
 
 - STM32 Pin Map
