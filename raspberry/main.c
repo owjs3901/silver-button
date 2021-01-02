@@ -33,15 +33,24 @@ int cur[4] = {
     0,
 }; //current state
 
+
 void read_dht11_dat();
 
-void INThandler(int sig)
+/*
+ctrl + c를 눌렀을 때 시그널 콜백 함수
+*/
+void INThandler(int sig) 
 {
   printf("\nInterrupt Bluetooth\n");
   close(s);
   exit(0);
 }
 
+/*
+소켓 통신을 이용한 블루투스 통신.
+리모콘으로 누른 버튼에 대한 데이터를 받고 값에 따라 대응하는 센서로 변환.
+변환된 데이터를 블루투스 통신을 이용해 리모콘으로 보냄.
+*/
 int main(void)
 {
   int rtc, i;
@@ -91,7 +100,7 @@ int main(void)
   }
 
  
-  signal(SIGINT, INThandler);
+  signal(SIGINT, INThandler); // 시그널 핸들러 등록
 
   pinMode(DMOTOR, OUTPUT);
   pinMode(LED1, OUTPUT);
@@ -108,16 +117,16 @@ int main(void)
     printf("1state : %d, cur :  %d\n", cur[1], sd.state[1]);
     printf("2state : %d, cur :  %d\n", cur[2], sd.state[2]);
     printf("3state : %d, cur :  %d\n", cur[3], sd.state[3]);
-    if (sd.state[0] != cur[0])
+    if (sd.state[0] != cur[0]) // 1번 버튼 누를 시 Room_led state 변환 및 적용
       RLED(cur[0] = sd.state[0]);
-    if (sd.state[1] != cur[1]) //hall_led
+    if (sd.state[1] != cur[1]) // 2번 버튼 누를 시 hall_led 변환 state 변환 및 적용
       LiLED(cur[1] = sd.state[1]);
-    if (sd.state[2] != cur[2]) //window
+    if (sd.state[2] != cur[2]) // 3번 버튼 누를 시 window 변환 state 변환 및 적용
       WMotor(cur[2] = sd.state[2]);
-    if (sd.state[3] != cur[3]) //door
+    if (sd.state[3] != cur[3]) // 4번 버튼 누를 시 door 변환 state 변환 및 적용
       DMotor(cur[3] = sd.state[3]);
 
-    read_dht11_dat();
+    read_dht11_dat(); //온습도 센싱
     delay(100);
 
     char data[100] = {
@@ -128,13 +137,16 @@ int main(void)
 
     memset(data, 0, 50);
     char msg;
-    write(s, &sd, sizeof(sd));
-    read(s, &sd, sizeof(sd));
+    write(s, &sd, sizeof(sd)); // 블루투스 데이터 전송
+    read(s, &sd, sizeof(sd)); // 블루투스 데이터 수신
   }
   close(s);
   return 0;
 }
 
+/*
+온습도를 측정 함수.
+*/
 void read_dht11_dat()
 {
   //unsigned 8 bit type

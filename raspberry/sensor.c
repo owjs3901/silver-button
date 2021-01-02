@@ -13,15 +13,19 @@
 #define WMOTOR1 21 // GPIO 5
 #define WMOTOR2 22 // GPIO 6
 
-
+ /*
+ 문을 열고 닫는 함수.
+ */
 void DMotor(int t)
 {
     softPwmCreate(DMOTOR, 0, 300);
     softPwmWrite(DMOTOR, t ? 1 : 27); // - 방향  
 }
 
-void WMotor(int t)
-{
+/*
+창문을 열고 닫는 함수.
+*/
+void WMotor(int t) { 
     softPwmCreate(WMOTOR2, 0, 100);
     softPwmCreate(WMOTOR1, 0, 100);
 
@@ -29,12 +33,18 @@ void WMotor(int t)
     softPwmWrite(WMOTOR2, t ? 5 : 17);   
 }
 
-void LiLED(int t) //거실조명
+/*
+거실 조명 on, off 조절 함수.
+*/
+void LiLED(int t) 
 {
   digitalWrite(LED1, t ? HIGH : LOW);
 }
 
-void RLED(int t) //방조명
+/*
+방 조명을 on, off 조절 함수.
+*/
+void RLED(int t) 
 {
   digitalWrite(LED2, t ? HIGH : LOW);
 }
