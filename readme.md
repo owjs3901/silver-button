@@ -24,7 +24,12 @@
 ## UI
 
 ## 개발환경
+- 하드웨어 구성
 
+- Raspberry Pi 4(Raspbian 기반) 회로도
+![Alt text](/Images/RPI4.png)
+
+## 아키텍처
 
 
 | col1 | col2 | col3 |
