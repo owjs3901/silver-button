@@ -26,10 +26,10 @@
 ## 개발환경
 - 하드웨어 구성
 
-- Raspberry Pi 4(Raspbian 기반) 회로도
+- Raspberry Pi 4(Raspbian 기반) Pin Map
 ![Alt text](/Images/RPI4.png)
 
-- STM32 회로도
+- STM32 Pin Map
 ![Alt text](/Images/stm32_circuit.jpg)
 
 ## 아키텍처
