@@ -40,10 +40,10 @@
 | 택트스위치 | ![Alt text](/Images/switch.jpg) |
 | 4201ASR-3 | ![Alt text](/Images/4201ASR-3.jpg) |
 
-- Raspberry Pi 4(Raspbian 기반) Pin Map  
+#### Raspberry Pi 4(Raspbian 기반) Pin Map  
 ![Alt text](/Images/RPI4.png)
 
-- STM32 Pin Map
+#### STM32 Pin Map
 ![Alt text](/Images/stm32_circuit.jpg)
 
 ## 아키텍처
