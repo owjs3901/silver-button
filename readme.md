@@ -27,7 +27,6 @@
 - 하드웨어 구성
 
 ### Raspberry Pi 4
-
 | 구성 | 비고 |
 | :---: | :---: |
 | DHT11(온습도센서 모듈[SEN030000]) | ![Alt text](/Images/DHT11.jpg) |
@@ -35,7 +34,6 @@
 | SG90 | ![Alt text](/Images/motor.jpg) |
 
 ### STM32
-
 | 구성 | 비고 |
 | :---: | :---: |
 | HC-06(Bluetooth) | ![Alt text](/Images/bluetooth.jpg) |
