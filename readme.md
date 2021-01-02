@@ -9,7 +9,7 @@
 - **[오정민](https://github.com/owjs3901)(팀장)**
 >
 
-- **[소호정](https://github.com/    )(팀원)**
+- **[소호정](https://github.com/bona0722)(팀원)**
 >
 
 - **[윤예준](https://github.com/yj4165)(팀원)**
