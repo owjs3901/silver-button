@@ -30,17 +30,18 @@
 | col1 | col2 |
 | :---: | :---: |
 | 구성 | 비고 |
-| DHT11(온습도센서 모듈[SEN030000]) | 1 |
-| 5AG3HD00 | 1 |
-| SG90 | 1 |
+| DHT11(온습도센서 모듈[SEN030000]) | ![Alt text](/Images/DHT11.jpg) |
+| 5AG3HD00 | ![Alt text](/Images/Led.jpg) |
+| SG90 | ![Alt text](/Images/motor.jpg) |
 
   - STM32
   
   | col1 | col2 |
   | :---: | :---: |
-  | HC-06 | 1 |
-  | 택트스위치 | 1 |
-  | 4201ASR-3 | 1 |
+  | 구성 | 비고 |
+  | HC-06(Bluetooth) | ![Alt text](/Images/bluetooth.jpg) |
+  | 택트스위치 | ![Alt text](/Images/switch.jpg) |
+  | 4201ASR-3 | ![Alt text](/Images/4201ASR-3.jpg) |
   
 - Raspberry Pi 4(Raspbian 기반) Pin Map
 ![Alt text](/Images/RPI4.png)
