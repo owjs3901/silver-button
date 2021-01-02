@@ -25,7 +25,21 @@
 
 ## 개발환경
 - 하드웨어 구성
+  - Raspberry Pi 4
+| col1 | col2 |
+| :---: | :---: |
+| 구성 | 비고 |
+| DHT11(온습도센서 모듈[SEN030000]) | |
+| 5AG3HD00 | |
+| SG90 |  |
 
+  - STM32
+  | col1 | col2 |
+  | :---: | :---: |
+  | HC-06 |  |
+  | 택트스위치 |  |
+  | 4201ASR-3 |  |
+  
 - Raspberry Pi 4(Raspbian 기반) Pin Map
 ![Alt text](/Images/RPI4.png)
 
@@ -36,7 +50,4 @@
 - Service Architecture 
 ![Alt text](/Images/Home.png)
 
-| col1 | col2 | col3 |
-| :---: | :---: | :---: |
-| 온도 | 습도 | 문 |
-| 창문 | 방 조명 | 거실 조명
+
