@@ -1,7 +1,7 @@
 # (2021) [ STM32Cube.AI ] (온라인) 서울 하드웨어 해커톤
 
-## 팀명 : 실버버튼
-  작품명 : 
+## 실버버튼
+  ![Alt text](/Images/silver_button_icon.png)
 
 ## 시연영상
 
@@ -28,7 +28,6 @@
 
 ### Raspberry Pi 4
 
-| col1 | col2 |
 | 구성 | 비고 |
 | :---: | :---: |
 | DHT11(온습도센서 모듈[SEN030000]) | ![Alt text](/Images/DHT11.jpg) |
@@ -36,8 +35,7 @@
 | SG90 | ![Alt text](/Images/motor.jpg) |
 
 ### STM32
-  
-| col1 | col2 |
+
 | 구성 | 비고 |
 | :---: | :---: |
 | HC-06(Bluetooth) | ![Alt text](/Images/bluetooth.jpg) |
