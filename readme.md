@@ -22,19 +22,18 @@
 하지만 다수를 차지하는 노인들은 ICT기술 이용의 사각지대에 놓여있다.
 특히 노인들에게 가장 필요하면서 UI조차 잘 마련되어있지 않은 스마트 홈을 “리모컨”이라는 익숙한 매개체를 통하여 컨트롤 할 수 있게 구현해 IoT 스마트홈에 대한 진입 및 학습 장벽을 낮추고자 한다.
 
-## UI
-
 ## 개발환경
-- 하드웨어 구성
 
-### Raspberry Pi 4
+### 하드웨어 구성
+
+#### Raspberry Pi 4
 | 구성 | 비고 |
 | :---: | :---: |
 | DHT11(온습도센서 모듈[SEN030000]) | ![Alt text](/Images/DHT11.jpg) |
 | 5AG3HD00 | ![Alt text](/Images/Led.jpg) |
 | SG90 | ![Alt text](/Images/motor.jpg) |
 
-### STM32
+#### STM32
 | 구성 | 비고 |
 | :---: | :---: |
 | HC-06(Bluetooth) | ![Alt text](/Images/bluetooth.jpg) |
