@@ -29,6 +29,9 @@
 - Raspberry Pi 4(Raspbian 기반) 회로도
 ![Alt text](/Images/RPI4.png)
 
+- STM32 회로도
+![Alt text](/Images/stm32_circuit.jpg)
+
 ## 아키텍처
 - Service Architecture 
 ![Alt text](/Images/Home.png)
