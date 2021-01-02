@@ -30,7 +30,8 @@
 ![Alt text](/Images/RPI4.png)
 
 ## 아키텍처
-
+- Service Architecture 
+![Alt text](/Images/Home.png)
 
 | col1 | col2 | col3 |
 | :---: | :---: | :---: |
